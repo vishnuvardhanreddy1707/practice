@@ -14,6 +14,8 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<SingupFormDBContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("SingupFormConnectionString")));
 builder.Services.AddTransient<IStudent,StudentRepo>();
 builder.Services.AddTransient<StudentS, StudentS>();
+builder.Services.AddTransient<ICourse, CourseRepo>();
+builder.Services.AddTransient<CourseS, CourseS>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

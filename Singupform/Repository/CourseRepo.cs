@@ -13,7 +13,9 @@ namespace Singupform.Repository
         {
             _dbContext = singupFormDBContext;
         }
-        public Course AddCoruse(Course course)
+        
+
+        public Course AddCourse(Course course)
         {
             try
             {
@@ -93,6 +95,7 @@ namespace Singupform.Repository
 
         public string UpdateCourse(Course course)
         {
+
             string stCode = string.Empty;
 
             try
@@ -108,7 +111,48 @@ namespace Singupform.Repository
                 stCode = "400";
             }
             return stCode;
-
         }
+
+
+
+
+
+        /* public Course UpdateCourse(int CourseId, Course course)
+         {
+             string stCode = string.Empty;
+             var courses = _dbContext.Courses.FirstOrDefault(q => q.CourseId == CourseId);
+
+             try
+             {
+                 if (courses != null)
+                 {
+                     courses.CourseName = course.CourseName;
+                     courses.FacultyName = course.FacultyName;
+                     courses.Courseprice = course.Courseprice;
+                 }
+
+
+                 /*Course cor=_dbContext.Courses.AsNoTracking().FirstOrDefault(c => c.CourseId == course.CourseId);
+                 if(cor != null)
+                 {
+                     _dbContext.Courses.Update(course);
+                     _dbContext.SaveChanges();
+                     stCode = "200";
+
+                 }*/
+
+
+
+        /* _dbContext.Entry(course).State = EntityState.Modified;
+         _dbContext.SaveChanges();
+        //stCode = "200";
+
+    }
+    catch (Exception ex)
+    {
+        stCode = "400";
+    }
+    return courses;
+}*/
     }
 }

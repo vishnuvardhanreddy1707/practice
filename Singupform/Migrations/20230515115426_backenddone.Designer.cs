@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Singupform.Data;
 
@@ -10,9 +11,10 @@ using Singupform.Data;
 namespace Singupform.Migrations
 {
     [DbContext(typeof(SingupFormDBContext))]
-    partial class SingupFormDBContextModelSnapshot : ModelSnapshot
+    [Migration("20230515115426_backenddone")]
+    partial class backenddone
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
