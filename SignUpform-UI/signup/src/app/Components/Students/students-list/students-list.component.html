@@ -1,0 +1,265 @@
+<!-- 
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="card">
+        <div class="container-fluid">
+          <form [formGroup]="SignUpform" (ngSubmit)="AddStudent()">
+            <div class="row">
+              <div class="col-md-6 mb-4">  
+                <div class="form-outline">
+                  <input type="text" id="firstName" class="form-control" formControlName="firstName"/>
+                  <label class="form-label" for="firstName">First Name</label>
+                  <div *ngIf="f['firstName'].touched && f['firstName'].invalid" class="alert alert-danger">
+                    <div *ngIf="f['firstName'].errors && f['firstName'].errors['required']">First Name is required.</div>
+                    <div *ngIf="f['firstName'].errors && f['firstName'].errors['minlength']">First Name should be more than 3 character.</div>
+                    <div *ngIf="f['firstName'].errors && f['firstName'].errors['maxlength']">First Name should be less than 50 character.</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-6 mb-4">
+                <div class="form-outline">
+                  <input type="text" id="lastName" class="form-control" formControlName="lastName"/>
+                  <label class="form-label" for="lastName">Last Name</label>
+                  <div *ngIf="f['lastName'].touched && f['lastName'].invalid" class="alert alert-danger">
+                    <div *ngIf="f['lastName'].errors && f['lastName'].errors['required']">Last Name is required.</div>
+                    <div *ngIf="f['lastName'].errors && f['lastName'].errors['minlength']">Last Name should be more than 3 character.</div>
+                    <div *ngIf="f['lastName'].errors && f['lastName'].errors['maxlength']">Last Name should be less than 50 character.</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-6 mb-4">
+                <input type="email" id="email" class="form-control" formControlName="email"/>
+                <label class="form-label" for="email">EmailId</label>
+                <div *ngIf="f['email'].touched && f['email'].invalid" class="alert alert-danger">
+                  <div *ngIf="f['email'].errors && f['email'].errors['required']">Email is required.</div>
+                  <div *ngIf="f['email'].errors && f['email'].errors['emailId']">Please, enter valid email address.</div>
+                  <div *ngIf="f['email'].errors && f['email'].errors['minlength']">EmailId should be more than 9 character.</div>
+                  <div *ngIf="f['email'].errors && f['email'].errors['maxlength']">EmailId should be less than 50 character.</div>
+                </div>
+              </div>
+
+            </div>
+            <div class="row">
+              <div class="col-md-6 mb-4">
+                <input type="text" id="phone" class="form-control" formControlName="phone"/>
+                <label class="form-label" for="phone">Phone Number</label>
+                <div *ngIf="f['phone'].touched && f['phone'].invalid" class="alert alert-danger">
+                  <div *ngIf="f['phone'].errors && f['phone'].errors['required']">Mobile Number is required.</div>
+                  <div *ngIf="f['phone'].errors && f['phone'].errors['minlength']">Mobile Number should be equal to 10 character.</div>
+                  <div *ngIf="f['phone'].errors && f['phone'].errors['maxlength']">Mobile Number should be equal to 10 character.</div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="mr-2" for="gender">Gender</label>
+                <div class="form-check form-check-inline">
+                  <input id="male" type="radio" value="Male" name="gender" formControlName="gender">
+                  <label for="male">Male</label>
+               </div>
+              </div>
+              <div class="form-check form-check-inline">
+                <input id="female" type="radio" value="Female" name="gender" formControlName="gender">
+                <label for="female">Female</label>
+             </div>
+             <div class="form-check form-check-inline">
+              <input id="others" type="radio" value="Others" name="gender" formControlName="gender">
+              <label for="others">Others</label>
+             </div>
+             <div *ngIf="f['gender'].touched && f['gender'].invalid" class="alert alert-danger">
+              <div *ngIf="f['gender'].errors && f['gender'].errors['required']">Gender is required.</div>
+
+
+          
+          </div>
+        
+          <div class="col-md-6 mb-4">
+            <div class="form-outline">
+              <label for="state" class="form-label" >Choose your state:</label>
+              <select name="state" id="state" class="form-control" formControlName="state">
+                <optgroup label="Stats">
+                  <option value="Andhra">Andhra</option>
+                  <option value="Telengana">Telengana</option>
+                
+                </optgroup>
+              </select>
+            </div>
+
+          </div>
+
+          <div class="col-md-6 mb-4">  
+            <div class="form-outline">
+              <input type="text" id="city" class="form-control" formControlName="city"/>
+              <label class="form-label" for="city"> city</label>
+              <div *ngIf="f['city'].touched && f['city'].invalid" class="alert alert-danger">
+                <div *ngIf="f['city'].errors && f['city'].errors['required']">First Name is required.</div>
+                
+              </div>
+              <div class="col-md-6 mb-4">  
+                <div class="form-outline">
+                  <input type="date" id="dob" class="form-control" formControlName="dob"/>
+                  <label class="form-label" for="dob">Date of Birth</label>
+                  <div *ngIf="f['dob'].touched && f['dob'].invalid" class="alert alert-danger">
+                    <div *ngIf="f['dob'].errors && f['dob'].errors['required']">First Name is required.</div>
+                    
+                  </div>
+                </div>
+              </div>
+              <button type="submit" class="btn btn-primary my-7">Submit</button>
+
+            </div>
+          </div>
+          
+            </div>
+
+
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> 
+ -->
+
+<body>
+<div class="container">
+  <div class="heading">SignUp</div>
+  
+  <br>
+  <form action="#">
+    <div class="card-details">
+      <form [formGroup]="SignUpform" (ngSubmit)="AddStudent()">
+        
+        
+        <div class="card-details2">
+
+          <div class="card-box">
+            <label class="form-label" for="firstName">First Name</label>
+            <input type="text" id="firstName" class="form-control" formControlName="firstName"/>
+                    
+                    <div *ngIf="f['firstName'].touched && f['firstName'].invalid" class="alert alert-danger">
+                      <div *ngIf="f['firstName'].errors && f['firstName'].errors['required']">First Name is required.</div>
+                      <div *ngIf="f['firstName'].errors && f['firstName'].errors['minlength']">First Name should be more than 3 character.</div>
+                      <div *ngIf="f['firstName'].errors && f['firstName'].errors['maxlength']">First Name should be less than 50 character.</div>
+          </div></div>
+
+          <div class="card-box">
+            <span class="form-label" for="lastName">Last Name</span>
+            <input type="text" id="lastName" class="form-control" formControlName="lastName"/>
+                  
+                    <div *ngIf="f['lastName'].touched && f['lastName'].invalid" class="alert alert-danger">
+                      <div *ngIf="f['lastName'].errors && f['lastName'].errors['required']">Last Name is required.</div>
+                      <div *ngIf="f['lastName'].errors && f['lastName'].errors['minlength']">Last Name should be more than 3 character.</div>
+                      <div *ngIf="f['lastName'].errors && f['lastName'].errors['maxlength']">Last Name should be less than 50 character.</div>
+                    </div>
+          </div>
+
+        </div>
+        <div class="card-details3">
+          
+        
+
+        
+            <div class="card-box">
+              <label class="form-label" for="email">EmailId</label>
+              <input type="email" id="email" class="form-control" formControlName="email"/>
+                    
+                    <div *ngIf="f['email'].touched && f['email'].invalid" class="alert alert-danger">
+                      <div *ngIf="f['email'].errors && f['email'].errors['required']">Email is required.</div>
+                      <div *ngIf="f['email'].errors && f['email'].errors['emailId']">Please, enter valid email address.</div>
+                      <div *ngIf="f['email'].errors && f['email'].errors['minlength']">EmailId should be more than 9 character.</div>
+                      <div *ngIf="f['email'].errors && f['email'].errors['maxlength']">EmailId should be less than 50 character.</div>
+                    </div>
+    
+            </div>
+            <div class="card-box">
+              <label class="form-label" for="phone">Phone Number</label>
+              <input type="text" id="phone" class="form-control" formControlName="phone"/>
+                    
+                    <div *ngIf="f['phone'].touched && f['phone'].invalid" class="alert alert-danger">
+                      <div *ngIf="f['phone'].errors && f['phone'].errors['required']">Mobile Number is required.</div>
+                      <div *ngIf="f['phone'].errors && f['phone'].errors['minlength']">Mobile Number should be equal to 10 character.</div>
+                      <div *ngIf="f['phone'].errors && f['phone'].errors['maxlength']">Mobile Number should be equal to 10 character.</div>
+                    </div>
+    
+            </div>
+    
+            
+    
+            
+                    
+            
+        </div>
+        <div class="card-details1">
+          <div class="card-box">
+            <form action="/action_page.php">
+            <label for="state" class="form-label" >Choose your state:</label>
+                <select name="state" id="state" class="form-control" formControlName="state">
+                  
+                    <option value="Andhra">Andhra Pradesh</option>
+                    <option value="Telengana">Telengana</option>
+                    <option value="Andhra">TamilNadu</option>
+                    <option value="Telengana">Kerla</option>
+                    <option value="Andhra">Karnataka</option>
+                    <option value="Telengana">Maharastra</option>
+                    <option value="Andhra">odissa</option>
+                    <option value="Telengana">Westbengal</option>
+                
+                </select>
+              </form>
+              <div *ngIf="f['state'].touched && f['state'].invalid" class="alert alert-danger">
+                <div *ngIf="f['state'].errors && f['state'].errors['required']">State is required.</div>
+        </div>
+
+          </div>
+          <div class="card-box">
+            <label class="form-label" for="city"> city</label>
+            <input type="text" id="city" class="form-control" formControlName="city"/>
+                
+                <div *ngIf="f['city'].touched && f['city'].invalid" class="alert alert-danger">
+                  <div *ngIf="f['city'].errors && f['city'].errors['required']">City is required.</div>
+          </div>
+          </div>
+          
+          <div class="card-box">
+            <label class="form-label" for="dob">Date of Birth</label>
+            <input type="date" id="dob" class="form-control" formControlName="dob"/>
+                    <div *ngIf="f['dob'].touched && f['dob'].invalid" class="alert alert-danger">
+                      <div *ngIf="f['dob'].errors && f['dob'].errors['required']">Date Of Birth is required.</div>
+                      
+                    </div>
+          </div>
+        </div>
+        <div class="circal-form">
+          
+          <label class="mr-2" for="gender">Gender</label>
+          <div class="category">
+            <input id="male" type="radio" value="Male" name="gender" formControlName="gender">
+            <label for="male">Male</label>
+            <input id="female" type="radio" value="Female" name="gender" formControlName="gender">
+                <label for="female">Female</label>
+                <input id="others" type="radio" value="Others" name="gender" formControlName="gender">
+                <label for="others">Others</label>
+                <div *ngIf="f['gender'].touched && f['gender'].invalid" class="alert alert-danger"></div>
+                <div *ngIf="f['gender'].errors && f['gender'].errors['required']">Gender is required.</div>
+          </div>
+          
+        </div>
+        <div class="button" >
+          <input type="submit" value="Register" [disabled]="SignUpform.invalid">
+        </div>
+        
+        <!-- <button type="submit" class="btn btn-primary my-7">Submit</button> -->
+      </form>
+    </div>
+  </form>
+</div>
+
+</body>
+
+
+
+
+ 
