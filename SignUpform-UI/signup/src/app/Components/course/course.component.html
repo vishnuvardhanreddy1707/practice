@@ -1,0 +1,30 @@
+<nav class="navbar navbar-light bg-primary">
+    <div class="container-fluid">
+        <h3 style="color:rgb(251, 251, 251)">Courses</h3>
+        <button (click)="clickAddCourse()" type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            Add Course
+          </button>
+    </div>
+</nav>
+
+<body>
+    <table class="table mt-1 mb-5"  >
+        <thead>
+            <tr>
+                <th scope="col">CourseId</th>
+                <th scope="col">CourseName</th>
+                <th scope="col">FacultyName</th>
+                <th scope="col">CoursePrice</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let row of courseData">
+                <td>{{row.courseId}}</td>
+                <td>{{row.courseName}}</td>
+                <td>{{row.facultyName}}</td>
+                <td>{{row.courseprice}}</td>
+            </tr>
+        </tbody>
+    </table>
+    
+</body>

@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { Student } from '../Models/Student.model';
+import{Course}from '../Models/Course.model'
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -10,14 +11,33 @@ import { Observable } from 'rxjs';
 export class StudentsService {
   
   readonly APIUrl ="https://localhost:7044/api"
-  baseApiUrl:string=environment.baseApiUrl;
+ 
   constructor(private http:HttpClient) { }
 
 
   getAllStudents():Observable<Student[]>{
-   return this.http.get<Student[]>(this.baseApiUrl + '/api/Student/GetAllStudents()')
+   return this.http.get<Student[]>(this.APIUrl + '/Student/GetAllStudents()')
   }
   addStudent(val:any){
     return this.http.post<Student>(this.APIUrl+'/Student/AddStudent',val);
   }
+
+  // course methods//
+  getAllCourse():Observable<Course[]>{
+    return this.http.get<Course[]>(this.APIUrl+'/Course/GetAllCourses');
+  }
+  addCourse(val:any){
+    return this.http.post<Course>(this.APIUrl+'/Course/AddCourse',val)
+  }
+ deleteCourse(id:number){
+  return this.http.delete<Course>(this.APIUrl+'/Course/DeleteCourse?CourseId='+id)
+ }
+
+ updateCourse(val:any){
+  return this.http.get<Course>(this.APIUrl+'/Course/UpdateCourse',val)
+ }
+ searchCourse(CorN:any){
+  return this.http.get<Course>(this.APIUrl+'/Course/searchCourse?CourseName='+CorN)
+ }
+
 }
