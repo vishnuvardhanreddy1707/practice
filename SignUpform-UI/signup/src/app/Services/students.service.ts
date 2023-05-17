@@ -27,14 +27,14 @@ export class StudentsService {
     return this.http.get<Course[]>(this.APIUrl+'/Course/GetAllCourses');
   }
   addCourse(val:any){
-    return this.http.post<Course>(this.APIUrl+'/Course/AddCourse',val)
+    return this.http.post<Course>(this.APIUrl+'/Course/AddCourses',val)
   }
  deleteCourse(id:number){
   return this.http.delete<Course>(this.APIUrl+'/Course/DeleteCourse?CourseId='+id)
  }
 
  updateCourse(val:any){
-  return this.http.get<Course>(this.APIUrl+'/Course/UpdateCourse',val)
+  return this.http.put<any>(this.APIUrl+'/Course/UpdateCourse',val)
  }
  searchCourse(CorN:any){
   return this.http.get<Course>(this.APIUrl+'/Course/searchCourse?CourseName='+CorN)

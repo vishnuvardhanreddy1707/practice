@@ -36,7 +36,7 @@ showUpdate!:boolean;
   }
 
   addCourses(){
-    this.courseModelObj.courseId=this.formValue.value.courseId;
+    
     this.courseModelObj.courseName=this.formValue.value.courseName;
     this.courseModelObj.facultyName=this.formValue.value.facultyName;
     this.courseModelObj.courseprice=this.formValue.value.courseprice;
@@ -60,10 +60,35 @@ showUpdate!:boolean;
       this.courseData=res;
     })
   }
-  deleteflight(row:any){
-    this.service.deleteCourse(row.CourseId)
+  deleteCourse(id:number){
+    if(confirm('Are you sure?')){
+      this.service.deleteCourse(id).subscribe(data=>{
+        console.log(data);
+        
+      });
+      
+    }
+  
+  }
+  onEdit(row:any){
+    this.showAdd=false;
+    this.showUpdate=true;
+    this.formValue.controls['courseId'].setValue(row.courseId);
+    this.formValue.controls['courseName'].setValue(row.courseName);
+    this.formValue.controls['facultyName'].setValue(row.facultyName);
+    this.formValue.controls['courseprice'].setValue(row.courseprice)
+  }
+  updateCourse(){
+    this.courseModelObj.courseId=this.formValue.value.courseId;
+    this.courseModelObj.courseName=this.formValue.value.courseName;
+    this.courseModelObj.facultyName=this.formValue.value.facultyName;
+    this.courseModelObj.courseprice=this.formValue.value.courseprice;
+    this.service.updateCourse(this.courseModelObj)
     .subscribe(res=>{
-      alert("course deleted");
+      alert("updated sucessfully");
+      let ref=document.getElementById('cancel')
+      ref?.click();
+      this.formValue.reset();
       this.getAllCourses();
     })
   }

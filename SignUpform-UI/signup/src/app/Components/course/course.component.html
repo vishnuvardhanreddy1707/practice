@@ -23,8 +23,48 @@
                 <td>{{row.courseName}}</td>
                 <td>{{row.facultyName}}</td>
                 <td>{{row.courseprice}}</td>
+                <td>
+                    <button (click)="onEdit(row)"  style="color:aliceblue;" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-info">Edit</button>
+                    <button  (click)="deleteCourse(row.courseId)" class="btn btn-danger mx-3">Delete</button>
+                </td>
             </tr>
         </tbody>
     </table>
     
 </body>
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Course Details</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form [formGroup]="formValue">
+                    <div *ngIf="showUpdate" class="form-group">
+                        <label >CourseId</label>
+                        <input type="text" class="form-control" id="courseId"  placeholder="Enter CourseId" formControlName="courseId">
+                      </div>
+                      <div class="form-group">
+                        <label >Course Name</label>
+                        <input type="text" class="form-control" id="courseName" placeholder="Enter  Course Name" formControlName="courseName">
+                      </div>
+                      <div class="form-group">
+                        <label >Faculty Name</label>
+                        <input type="text" class="form-control" id="facultyName" placeholder="Enter  facultyName" formControlName="facultyName">
+                      </div>
+                      <div class="form-group">
+                        <label >Course Price</label>
+                        <input type="text" class="form-control" id="courseprice" placeholder="Enter  Name" formControlName="courseprice">
+                      </div>
+                </form>
+                <div class="modal-footer">
+                    <button type="button" id="cancel" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" *ngIf="showAdd" (click)="addCourses()" class="btn btn-primary">Add</button>
+                    <button type="button" *ngIf="showUpdate" (click)="updateCourse()" class="btn btn-primary">Update</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
