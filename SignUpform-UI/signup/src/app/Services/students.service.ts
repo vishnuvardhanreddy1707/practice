@@ -4,6 +4,7 @@ import { environment } from 'src/environments/environment';
 import { Student } from '../Models/Student.model';
 import{Course}from '../Models/Course.model'
 import { Observable } from 'rxjs';
+import { CourseEnrolls } from '../Models/CourseEnrolls.model';
 
 @Injectable({
   providedIn: 'root'
@@ -36,8 +37,16 @@ export class StudentsService {
  updateCourse(val:any){
   return this.http.put<any>(this.APIUrl+'/Course/UpdateCourse',val)
  }
- searchCourse(CorN:any){
-  return this.http.get<Course>(this.APIUrl+'/Course/searchCourse?CourseName='+CorN)
+ searchCourse(val:any){
+  return this.http.get<Course>(this.APIUrl+'/Course/searchCourse?CourseName='+val)
  }
+
+addEnroll(val:any){
+return this.http.post<CourseEnrolls>(this.APIUrl+'/CourseEnrolls/AddEnroll',val)
+ }
+
+getAllEnrolls():Observable<CourseEnrolls[]>{
+  return this.http.get<CourseEnrolls[]>(this.APIUrl+'/CourseEnrolls/GetAllEnrolls()')
+}
 
 }

@@ -11,8 +11,8 @@ using Singupform.Data;
 namespace Singupform.Migrations
 {
     [DbContext(typeof(SingupFormDBContext))]
-    [Migration("20230515115426_backenddone")]
-    partial class backenddone
+    [Migration("20230519092501_vis")]
+    partial class vis
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -45,6 +45,38 @@ namespace Singupform.Migrations
                     b.ToTable("Courses");
                 });
 
+            modelBuilder.Entity("Singupform.Models.CourseEnrolls", b =>
+                {
+                    b.Property<int>("CEId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CEId"), 1L, 1);
+
+                    b.Property<int>("CourseId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("CourseName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FacultyName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("StudentId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("StudentName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("CEId");
+
+                    b.HasIndex("CourseId");
+
+                    b.HasIndex("StudentId");
+
+                    b.ToTable("CoursesEnrolls");
+                });
+
             modelBuilder.Entity("Singupform.Models.Student", b =>
                 {
                     b.Property<int>("StudentId")
@@ -54,6 +86,9 @@ namespace Singupform.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("StudentId"), 1L, 1);
 
                     b.Property<string>("City")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ConfirmPassword")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Dob")
@@ -71,6 +106,9 @@ namespace Singupform.Migrations
                     b.Property<string>("LastName")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Password")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<long>("Phone")
                         .HasColumnType("bigint");
 
@@ -80,6 +118,35 @@ namespace Singupform.Migrations
                     b.HasKey("StudentId");
 
                     b.ToTable("Students");
+                });
+
+            modelBuilder.Entity("Singupform.Models.CourseEnrolls", b =>
+                {
+                    b.HasOne("Singupform.Models.Course", "Course")
+                        .WithMany("CourseEnrolls")
+                        .HasForeignKey("CourseId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Singupform.Models.Student", "Student")
+                        .WithMany("CourseEnrolls")
+                        .HasForeignKey("StudentId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Course");
+
+                    b.Navigation("Student");
+                });
+
+            modelBuilder.Entity("Singupform.Models.Course", b =>
+                {
+                    b.Navigation("CourseEnrolls");
+                });
+
+            modelBuilder.Entity("Singupform.Models.Student", b =>
+                {
+                    b.Navigation("CourseEnrolls");
                 });
 #pragma warning restore 612, 618
         }

@@ -1,0 +1,43 @@
+<nav class="navbar navbar-light bg-primary">
+    <div class="container-fluid">
+        <h3 style="color:rgb(251, 251, 251)">Get Courses</h3>
+        
+    </div>
+</nav>
+
+<div class="container">
+    
+    <form [formGroup]="formValue">
+        <div class="form-group">
+            <label for="exampleInputEmail1">Course Name</label>
+            <input type="text" class="form-control" id="courseName"  placeholder="courseName" formControlName="courseName">
+        </div>
+        <button class="btn btn-primary" (click)="searchCourse()">Search</button>
+    </form>
+    
+</div>
+<table class="table mt-4">
+    
+    <thead>
+        <tr *ngIf="CourseData">
+            <th>Course Id</th>
+            
+            <th>Course Name</th>
+            <th>Faculty Name</th>
+            <th>Course Price</th>
+            <th>hg</th>
+           
+        </tr>
+    </thead>
+    <tbody>
+        <tr class="tbody" *ngFor="let row of CourseData ">
+            <td>{{row.courseId}}</td>
+            <td>{{row.courseName}}</td>
+            <td>{{row.facultyName}}</td>
+            <td>{{row.courseprice}}</td>
+            <button class="btn btn-primary" type="submit" (click)="Enroll(CourseData)">
+                Enroll</button>
+        
+        </tr>
+    </tbody>
+</table>

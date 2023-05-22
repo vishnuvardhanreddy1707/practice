@@ -16,6 +16,8 @@ builder.Services.AddTransient<IStudent,StudentRepo>();
 builder.Services.AddTransient<StudentS, StudentS>();
 builder.Services.AddTransient<ICourse, CourseRepo>();
 builder.Services.AddTransient<CourseS, CourseS>();
+builder.Services.AddTransient<ICourseEnrolls, CourseEnrollsRepo>();
+builder.Services.AddTransient<CourseEnrollsS, CourseEnrollsS>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

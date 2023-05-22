@@ -1,6 +1,9 @@
 <nav class="navbar navbar-light bg-primary">
+    
     <div class="container-fluid">
         <h3 style="color:rgb(251, 251, 251)">Courses</h3>
+        <!-- <input class="form-control" type="text" size="5" placeholder="search" ><br><br> -->
+        <input type="text"  size="50" placeholder="Search"[(ngModel)]="searchText">
         <button (click)="clickAddCourse()" type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
             Add Course
           </button>
@@ -18,7 +21,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let row of courseData">
+            <tr *ngFor="let row of courseData |search: searchText">
                 <td>{{row.courseId}}</td>
                 <td>{{row.courseName}}</td>
                 <td>{{row.facultyName}}</td>

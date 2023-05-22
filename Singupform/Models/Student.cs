@@ -12,9 +12,12 @@ namespace Singupform.Models
         public string LastName { get; set;}
         public string Email { get; set; }
         public long Phone { get; set;}
+        public string Password { get; set; }
+        public string ConfirmPassword { get; set; }
         public string Gender { get; set;}
         public string State { get; set;}
         public string City { get; set;}
         public string Dob { get; set;}
+        public ICollection<CourseEnrolls> CourseEnrolls { get; set; } // Navigation property
     }
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Course } from 'src/app/Models/Course.model';
@@ -11,6 +11,7 @@ import { StudentsService } from 'src/app/Services/students.service';
 })
 export class CourseComponent implements OnInit {
 formValue !:FormGroup;
+searchText='';
 courseModelObj:Course= new Course();
 courseData!:any;
 showAdd!:boolean;
@@ -92,4 +93,5 @@ showUpdate!:boolean;
       this.getAllCourses();
     })
   }
+ 
 }

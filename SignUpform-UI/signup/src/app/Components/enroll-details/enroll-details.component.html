@@ -1,0 +1,46 @@
+<div id="content" >
+<nav class="navbar navbar-light bg-primary">
+   
+    <div class="container-fluid">
+        <h3 style="color:rgb(251, 251, 251)">Enroll Details</h3>
+        <!-- <button (click)=" makePDF()">Download</button> -->
+    </div>
+</nav>
+<body>
+   
+    <table class="table mt-1 mb-5"  >
+        <thead>
+            <tr>
+                <th scope="col">Enroll Id</th>
+                <th scope="col">Student Id</th>
+                <th scope="col">Course Id</th>
+                <th scope="col">Course Name</th>
+                <th scope="col">Faculty Name</th>
+                <!-- <th scope="col">City</th>
+                <th scope="col">Date of Birth</th>
+                <th scope="col">Gender</th> -->
+                <!-- <th scope="col">Details</th> -->
+
+                  
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let row of EnrollData">
+                <td>{{row.ceId}}</td>
+                <td>{{row.studentId}}</td>
+                <td>{{row.courseId}}</td>
+                <td>{{row.courseName}}</td>
+                <td>{{row.facultyName}}</td>
+                <!-- <td>{{row.state}}</td>
+                <td>{{row.city}}</td>
+                <td>{{row.dob}}</td> -->
+                <!-- <td><button id='{{row.studentId}}' class="btn btn-primary">show</button> </td> -->
+            </tr>
+        </tbody>
+    </table>
+    
+
+
+</body>
+</div>
+<input type="button" class="btn btn-danger" value="Download" (click)="convertToPDF()" />

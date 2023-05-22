@@ -12,5 +12,6 @@ namespace Singupform.Models
         public string CourseName { get; set; }
         public string FacultyName { get; set; }
         public int Courseprice { get; set; }
+        public ICollection<CourseEnrolls> CourseEnrolls { get; set; } // Navigation property
     }
 }

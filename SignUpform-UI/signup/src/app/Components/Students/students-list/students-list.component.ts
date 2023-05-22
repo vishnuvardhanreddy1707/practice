@@ -17,6 +17,8 @@ export class StudentsListComponent implements OnInit {
     lastName : new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(50)]),
     email : new FormControl('',[Validators.required, Validators.email, Validators.minLength(9), Validators.maxLength(50)]),
     phone : new FormControl('' , [Validators.required ,Validators.minLength(10),Validators.pattern("^[0-9]*$"),Validators.maxLength(10)]),
+    password:new FormControl('',Validators.required),
+    confirmPassword:new FormControl('',Validators.required),
     gender : new FormControl('',Validators.required),
     state : new FormControl('',Validators.required),
     city : new FormControl('',Validators.required),

@@ -39,7 +39,7 @@ namespace Singupform.Controllers
             return courseS.GetAllCourses();
         }
 
-        [HttpPost("searchCourse")]
+        [HttpGet("searchCourse")]
         public List<Course> SearchCourse(string CourseName)
         {
             return courseS.SearchCourse(CourseName);
